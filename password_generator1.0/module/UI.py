@@ -5,17 +5,68 @@ import re
 LOWERCASE = "azertyuiopqsdfghjklmwxcvbn"
 CAPITALIZE = LOWERCASE.upper()
 NUMBER = "0123456879"
-SPECHAR = "&é\"'(-è_çà)=~#{[|`\\^@]}¨$£¤ù%*µ,?;.:/!+§"
+SPECHAR = "é\"'(-è_çà)=~<>#{[|`\\^@]}¨$£¤ù%*µ,?;.:/!+§"
 
 
 class UI(tk.Tk):
     def __init__(self) -> None:
         tk.Tk.__init__(self)
 
-        self.display_generator()
+        self.display_menu()
+
+    def set_geometry(self):
+        self.update_idletasks()
+        width = self.winfo_reqwidth() + 100  # margin E-W
+        height = self.winfo_reqheight() + 20  # margin N-S
+
+        x = (self.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.winfo_screenheight() // 2) - (height // 2)
+        self.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+
+    def display_menu(self):
+        self.clear()
+        frame_menu = tk.Frame(self)
+        frame_menu.pack()
+        generator_b = tk.Button(frame_menu, text="Generator",
+                                command=self.display_generator,
+                                width=15
+                                )
+        history_b = tk.Button(frame_menu, text="Password history",
+                              command=self.display_history,
+                              width=15
+                              )
+        generator_b.pack(pady=10)
+        history_b.pack(pady=10)
+
+        self.set_geometry()
 
     def display_history(self):
-        pass
+        self.clear()
+        frame_history = tk.Frame(self)
+        frame_history.pack()
+
+        data = self.recover_history()
+
+        for line in data:
+            frame_line = tk.Frame(frame_history)
+            frame_line.pack()
+            wording = re.search(r"([a-zA-Z\d]+)(-&:)", line).group(1)
+            password = re.search(r"(?:&-)([^ \n]+)", line).group(1)
+
+            label = tk.Label(frame_line, text=f"{wording} : ")
+            label.pack(side="left")
+
+            text = tk.Text(frame_line,
+                           width=int(len(password)/(((len(password)) > 50)+1)),
+                           height=1+(len(password) > 50)
+                           )
+            text.insert("1.0", password)
+            text.pack(side="left")
+
+        back_B = tk.Button(self, text="Return", command=self.display_menu)
+        back_B.pack(side="bottom")
+
+        self.set_geometry()
 
     def display_generator(self):
         self.clear()
@@ -72,23 +123,33 @@ class UI(tk.Tk):
         save_B = tk.Button(frame_body, text="Save", command=self.save_password)
         save_B.grid(row=4, column=1, sticky="nesw")
 
-        self.label = tk.Label(self, text="Wording : ")
-        self.wording_E = tk.Entry(self)
+        frame_footer = tk.Frame(self)
+        frame_footer.pack()
+
+        self.label = tk.Label(frame_footer, text="Wording : ")
+        self.wording_E = tk.Entry(frame_footer)
+
+        back_B = tk.Button(self, text="Return", command=self.display_menu)
+        back_B.pack(side="bottom")
+
+        self.set_geometry()
 
     def display_save(self):
         self.label.pack()
         self.wording_E.pack()
+
+        self.set_geometry()
 
     def save_password(self):
         if self.wording_E.winfo_ismapped():
             password = self.pw_text.get("1.0", tk.END)
             password = password.replace("\n", "")
             wording = self.wording_E.get()
-            regex = r"^[^ \n]{5,100}$"
+            regex = r"^[^ \n&]{5,100}$"
             if re.search(r"^[a-zA-Z\d]+$", wording) is not None:
                 if re.search(regex, password) is not None:
                     with open("data/data.txt", "a") as file:
-                        file.write(f"{wording}: {password}\n")
+                        file.write(f"{wording}-&: &-{password}\n")
                     self.display_generator()
         else:
             self.display_save()
@@ -144,6 +205,11 @@ class UI(tk.Tk):
                         password += rd.choice(SPECHAR)
 
         return password
+
+    def recover_history(self):
+        with open("data/data.txt", "r") as file:
+            data = file.readlines()
+            return data
 
     def clear(self):
         for widget in self.winfo_children():

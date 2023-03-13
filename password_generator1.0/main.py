@@ -1,4 +1,4 @@
-from UI import UI
+from module.UI import UI
 import os
 
 # menu : generateur || historique

@@ -1,10 +1,6 @@
 ('C:\\Users\\Thomas\\Desktop\\coding\\projet '
  'Python\\0-Beta\\mdp_generator\\password_generator1.0\\build\\main\\PYZ-00.pyz',
- [('UI',
-   'C:\\Users\\Thomas\\Desktop\\coding\\projet '
-   'Python\\0-Beta\\mdp_generator\\password_generator1.0\\module\\UI.py',
-   'PYMODULE'),
-  ('_compat_pickle',
+ [('_compat_pickle',
    'C:\\Users\\Thomas\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\_compat_pickle.py',
    'PYMODULE'),
   ('_compression',
@@ -231,6 +227,11 @@
    'PYMODULE'),
   ('mimetypes',
    'C:\\Users\\Thomas\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\mimetypes.py',
+   'PYMODULE'),
+  ('module', '-', 'PYMODULE'),
+  ('module.UI',
+   'C:\\Users\\Thomas\\Desktop\\coding\\projet '
+   'Python\\0-Beta\\mdp_generator\\password_generator1.0\\module\\UI.py',
    'PYMODULE'),
   ('netrc',
    'C:\\Users\\Thomas\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\netrc.py',
