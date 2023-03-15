@@ -1,5 +1,8 @@
-Developpe a little GUI that can generate random password for you.
-You can select if you wish lowercase capitalize number or special char and you can choose the length between 5 and 100.
-You can also save your generated password with wording, and have this history in the section "Password Hisotry".
+Random Password Generator with Tkinter
 
-download the last operational package (name "password_generatorX.X) to use this program.
+This is a simple program that generates random password using the Tkinter GUI toolkit. The user can specify the legnth of password to be generated, as well as . The program generates numbers with uniform distribution, which means that each possible value has an equal probability of being chosen.
+
+Installation
+
+To use this program, download the latest version named 'Manga_LibraryX.X' and then launch 'main.exe' in the 'dist' folder.
+To download a folder from GitHub, navigate to your desired repository, select the folder you want, copy the URL, then paste it at this URL : https://download-directory.github.io/
