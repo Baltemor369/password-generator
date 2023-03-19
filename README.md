@@ -16,7 +16,6 @@ To download a folder from GitHub, navigate to your desired repository, select th
     
 ## Usage
 
-Usage :
 you have two tab :
 - generator : Where you can select your option (length, allowed charactere). to generate, click on "Generate". 
 You can also save your password with a wording by clicking on "Save", enter a name then click again on "Save".
