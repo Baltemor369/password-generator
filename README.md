@@ -1,33 +1,27 @@
 
 # Random Password Generator
 
-This is a simple program that can generates random password using the Tkinter GUI toolkit. The user can specify the legnth of password to be generated, as well as if contain lowercase, uppercase, number or special char.
+Welcome to our Random Password Generator! This program harnesses the power of the Tkinter GUI toolkit to create random passwords. With this user-friendly tool, you have the flexibility to customize the length of the generated password. Additionally, you can choose whether to include lowercase and uppercase letters, numbers, and special characters, tailoring the password to your specific security needs.
 ## Authors
 
 - [@Baltemor369](https://www.github.com/Baltemor369)
 
-
 ## Installation
 
-To use this program, download the latest version named 'password_generatorX.X' and then launch 'main.exe' in the 'dist' folder.
-
-To download a folder from GitHub, navigate to your desired repository, select the folder you want, copy the URL, then paste it at this URL : https://download-directory.github.io/
-
+To use this program, download the zip folder, extract all, then launch the .exe file name "PasswordGenerator.exe". Create a shortcut for quicker usage.
     
 ## Usage
 
-you have two tab :
-- generator : Where you can select your option (length, allowed charactere). to generate, click on "Generate". 
-You can also save your password with a wording by clicking on "Save", enter a name then click again on "Save".
-- History : Where you can see all saved password with their wording
-
-
-
+Upon launching the application, a window will appear in which you can select password options by clicking on the four buttons, adjust the password length, and then generate it by clicking "Generate." You can copy the generated password and also save it to a local file with a tag. Additionally, there is a "History" button that allows you to view the passwords you have saved.
 
 ## /!\ Warning /!\
 
-this program is not a secure way to keep your passwords, use Bitwarden or any other similar tool to ensure that your passwords don't leak.
+This software should not be relied upon as a secure means of storing your passwords. For enhanced security and peace of mind, we recommend utilizing reputable tools like Bitwarden or other similar solutions to safeguard against potential password leaks.
 ## Contributing
+Icon created by [Muhammad_Usman](https://www.flaticon.com/fr/auteurs/muhammad-usman) - Flaticon
 
-If you find a bug or have a suggestion for a new feature, please open an issue on the GitHub repository. Pull requests are also welcome.
+Contributions to this project are welcome! Whether it's bug fixes, feature enhancements, or UI improvements, your contributions will make the game even better.
 
+## License
+
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License - feel free to use, modify, and distribute it as you see fit.
